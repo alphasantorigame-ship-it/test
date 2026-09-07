@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrat de Réservation — Easy Fly Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-contrat">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">EASY FLY <span>BOOKING</span></div>
+  <div class="topbar-badge">✈ Contrat de réservation</div>
+</div>
+
+<!-- STEPS -->
+<div class="steps-bar">
+  <div class="step active" id="step1">
+    <div class="step-num">1</div>
+    <span>Informations</span>
+  </div>
+  <div class="step" id="step2">
+    <div class="step-num">2</div>
+    <span>Contrat</span>
+  </div>
+  <div class="step" id="step3">
+    <div class="step-num">3</div>
+    <span>Signature</span>
+  </div>
+  <div class="step" id="step4">
+    <div class="step-num">4</div>
+    <span>Confirmation</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ══ PAGE 1 : INFOS ══ -->
+  <div class="page active" id="page1">
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-icon">✈</div>
+        <div>
+          <h2>Informations de réservation</h2>
+          <p>Remplissez les détails de votre voyage</p>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom complet *</label>
+            <input id="c-nom" type="text" placeholder="Ex : Jean-Pierre MOUSSAVOU">
+          </div>
+          <div class="form-group">
+            <label>Numéro de téléphone *</label>
+            <input id="c-tel" type="tel" placeholder="Ex : +241 77 00 00 00">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email (optionnel)</label>
+            <input id="c-email" type="email" placeholder="exemple@gmail.com">
+          </div>
+          <div class="form-group">
+            <label>Type de transport *</label>
+            <select id="c-transport">
+              <option value="" disabled selected>Choisir...</option>
+              <option value="Avion ✈">Avion ✈</option>
+              <option value="Train 🚂">Train 🚂</option>
+              <option value="Bateau 🚢">Bateau 🚢</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Point de départ *</label>
+            <select id="c-depart">
+              <option value="" disabled selected>Choisir une ville...</option>
+              <option value="Libreville">Libreville</option>
+              <option value="Port-Gentil">Port-Gentil</option>
+              <option value="Makokou">Makokou</option>
+              <option value="Franceville">Franceville</option>
+              <option value="Oyem">Oyem</option>
+              <option value="Gamba">Gamba</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Destination *</label>
+            <select id="c-destination">
+              <option value="" disabled selected>Choisir une ville...</option>
+              <option value="Libreville">Libreville</option>
+              <option value="Port-Gentil">Port-Gentil</option>
+              <option value="Makokou">Makokou</option>
+              <option value="Franceville">Franceville</option>
+              <option value="Oyem">Oyem</option>
+              <option value="Gamba">Gamba</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date de départ souhaitée *</label>
+            <input id="c-date" type="date">
+          </div>
+          <div class="form-group">
+            <label>Nombre de passagers *</label>
+            <select id="c-passagers">
+              <option value="" disabled selected>Choisir...</option>
+              <option value="1 passager">1 passager</option>
+              <option value="2 passagers">2 passagers</option>
+              <option value="3 passagers">3 passagers</option>
+              <option value="4 passagers">4 passagers</option>
+              <option value="5+ passagers">5+ passagers</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>Remarques / Demandes spéciales</label>
+            <textarea id="c-notes" placeholder="Ex : bagages supplémentaires, siège préférentiel..."></textarea>
+          </div>
+        </div>
+        <div id="alert1" class="alert"></div>
+        <div class="action-row">
+          <button class="btn-primary" onclick="goToStep2()">Suivant → Lire le contrat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 2 : CONTRAT ══ -->
+  <div class="page" id="page2">
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-icon">📄</div>
+        <div>
+          <h2>Conditions Générales de Réservation</h2>
+          <p>Lisez attentivement avant de signer</p>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="contract-box" id="contractText">
+
+          <p style="margin-bottom:14px; text-align:center;">Veuillez lire attentivement ce contrat de réservation de billets conclu avec <strong>EASY FLY BOOKING</strong>.</p>
+
+          <h3>1. OBJET DU CONTRAT</h3>
+          <p>Le présent contrat a pour objet la réservation de billets de train, d'avions ou de bateaux pour le Client par <strong>EASY FLY BOOKING</strong>.</p>
+
+          <h3>2. SERVICES FOURNIS</h3>
+          <p>EASY FLY BOOKING s'engage à :</p>
+          <p>• Réserver les billets de train, d'avion ou de bateau selon les préférences du Client.</p>
+          <p>• Informer le Client des options disponibles.</p>
+
+          <h3>3. RÉMUNÉRATION</h3>
+          <p>Le Client accepte de rembourser le montant des billets réservés, auquel s'ajoute une <strong>majoration de 18,5%</strong> pour le service.</p>
+          <p>Si le Client décide, pour une raison quelconque, d'annuler son départ alors que le billet a déjà été réservé, le Client s'engage à rembourser <strong>la totalité du montant exact du billet sans rajout des frais</strong>.</p>
+
+          <h3>4. ACCORD DU CLIENT</h3>
+          <p>Le Client donne son accord par téléphone pour chaque réservation effectuée. Toute réservation confirmée par le Client est considérée comme acceptée.</p>
+
+          <h3>5. RÉSILIATION</h3>
+          <p>Le Client peut résilier le présent contrat à tout moment en informant <strong>EASY FLY BOOKING</strong> par écrit.</p>
+
+        </div>
+
+        <div class="read-confirm">
+          <input type="checkbox" id="c-lu" onchange="checkRead()">
+          <label for="c-lu" style="cursor:pointer;">J'ai lu et j'accepte les <strong style="color:var(--blue);text-decoration:underline;cursor:pointer;">Conditions Générales de Réservation</strong> d'Easy Fly Booking dans leur intégralité.</label>
+        </div>
+
+        <div id="alert2" class="alert"></div>
+        <div class="action-row">
+          <button class="btn-primary" style="background:transparent;color:var(--muted);border:1.5px solid var(--border);box-shadow:none;" onclick="goTo(1)">← Retour</button>
+          <button class="btn-primary" id="btn-sign" onclick="goToStep3()" disabled>Passer à la signature →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 3 : SIGNATURE ══ -->
+  <div class="page" id="page3">
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-icon">✍️</div>
+        <div>
+          <h2>Signature électronique</h2>
+          <p>Signez avec votre doigt (mobile) ou votre souris</p>
+        </div>
+      </div>
+      <div class="panel-body">
+
+        <!-- Preview recap -->
+        <div class="preview-box show" style="margin-bottom:20px;">
+          <div class="preview-header">
+            <div class="preview-title">RÉCAPITULATIF DE RÉSERVATION</div>
+            <div class="preview-num" id="prev-num">N° EFB-000000</div>
+          </div>
+          <div class="preview-grid">
+            <div class="preview-item">
+              <div class="pi-label">Client</div>
+              <div class="pi-value" id="prev-nom">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Téléphone</div>
+              <div class="pi-value" id="prev-tel">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Transport</div>
+              <div class="pi-value" id="prev-transport">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Départ</div>
+              <div class="pi-value" id="prev-depart">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Destination</div>
+              <div class="pi-value" id="prev-destination">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Date souhaitée</div>
+              <div class="pi-value" id="prev-date">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Passagers</div>
+              <div class="pi-value" id="prev-passagers">—</div>
+            </div>
+            <div class="preview-item">
+              <div class="pi-label">Date du contrat</div>
+              <div class="pi-value" id="prev-today">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature canvas -->
+        <div class="sig-wrap" id="sigWrap">
+          <canvas id="sigCanvas" height="180"></canvas>
+          <div class="sig-placeholder" id="sigPlaceholder">
+            <span>✍️</span>
+            Signez ici avec votre doigt ou votre souris
+          </div>
+        </div>
+        <div class="sig-actions">
+          <button class="btn-clear" onclick="clearSig()">Effacer la signature</button>
+        </div>
+
+        <div id="alert3" class="alert"></div>
+        <div class="action-row">
+          <button class="btn-primary" style="background:transparent;color:var(--muted);border:1.5px solid var(--border);box-shadow:none;" onclick="goTo(2)">← Retour</button>
+          <button class="btn-primary" onclick="validerContrat()">✅ Valider et générer le contrat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 4 : CONFIRMATION ══ -->
+  <div class="page" id="page4">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="success-screen show">
+          <div class="success-icon">🎉</div>
+          <h2>CONTRAT SIGNÉ !</h2>
+          <p>Votre contrat de réservation a été généré avec succès.<br>
+          Téléchargez votre exemplaire PDF et envoyez-le nous sur WhatsApp.</p>
+
+          <div style="margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <button class="btn-pdf show" id="btn-dl-pdf" onclick="telechargerPDF()">
+              📄 Télécharger mon contrat PDF
+            </button>
+          </div>
+
+          <p style="margin-top:24px; font-size:0.8rem; color:var(--muted);">
+            Numéro de contrat : <strong id="confirm-num" style="color:var(--blue);">—</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+  <script src="script.js"></script>
+</body>
+</html>
