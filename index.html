@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Fly Booking — Voyagez Sans Stress</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-index">
+
+<!-- SITE HEADER: logo left, contact right -->
+<div class="site-header">
+  <div class="site-header-logo">
+    <img src="images/logo-efb.png" alt="Easy-Fly Booking" class="site-header-logo-img">
+    <div class="site-header-logo-text">
+      <div class="sh-name"><span class="c-blue">Easy</span><span class="c-blue">-</span><span class="c-gold">Fly</span> <span class="c-blue">Booking</span></div>
+      <div class="sh-tagline">Simplicity and anticipation for peace <span class="red">of mind</span></div>
+    </div>
+  </div>
+  <div class="site-header-actions">
+    <a href="services.html" class="site-header-action">
+      <div class="sh-contact-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <span class="sh-contact-label">Nos services</span>
+    </a>
+    <a href="https://wa.me/241065033140?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20prestations%20de%20services%20de%20r%C3%A9servation%20de%20billets%20d%27avion%2C%20de%20bateau%20et%20de%20train." target="_blank" class="site-header-action">
+      <div class="sh-contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <span class="sh-contact-label">Contactez-nous</span>
+    </a>
+  </div>
+</div>
+
+<!-- TOP BAR with round icons -->
+<div class="topbar">
+  <div class="topbar-toprow">
+    <div class="hero-badge-2b">
+      <span class="hb-dot"><span class="hb-dot-inner"></span></span>
+      <span class="hb-label">Agence de billetterie</span>
+      <span class="hb-sep"></span>
+      <span class="hb-gabon">Gabon</span>
+    </div>
+
+    <nav class="icon-nav">
+      <a class="icon-item" onclick="openTransport()">
+        <svg viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        <span class="icon-label">Transport</span>
+      </a>
+      <a class="icon-item" onclick="openReservation('Séjours')">
+        <svg viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+        <span class="icon-label">Séjours</span>
+      </a>
+      <a class="icon-item" onclick="openReservation('Location de voitures')">
+        <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <span class="icon-label">Voiture de location</span>
+      </a>
+      <a class="icon-item" onclick="openReservation('Taxi aéroport')">
+        <svg viewBox="0 0 24 24"><path d="M3 11 5 6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 5"/><path d="M3 11h18v6a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="16.5" r="1.5"/><circle cx="16.5" cy="16.5" r="1.5"/></svg>
+        <span class="icon-label">Taxi aéroport</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="hero-inline">
+    <h1><span class="h1-red">Voyagez</span> <em>sans stress</em> <span class="h1-red">au Gabon</span></h1>
+    <p>Billets d'avion, de train et de bateau — nous gérons tout pour que vous vous concentriez sur ce qui compte vraiment.</p>
+  </div>
+</div>
+
+<!-- DESTINATIONS BAND (modèle 1b) -->
+<div class="dest-band">
+  <div class="dest-band-label">
+    <span class="dest-band-dash"></span>Nous desservons
+  </div>
+  <div class="dest-band-viewport">
+    <div class="dest-band-track">
+      <span class="dest-band-item">Libreville<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Port-Gentil<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Franceville<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Gamba<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Makokou<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Oyem<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Libreville<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Port-Gentil<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Franceville<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Gamba<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Makokou<span class="dest-dot"></span></span>
+      <span class="dest-band-item">Oyem<span class="dest-dot"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- OFFERS (style Selectour : 3 photos par zone, pas de diaporama) -->
+<section class="offers" id="services">
+
+  <!-- ZONE TRANSPORT -->
+  <div class="offer-zone">
+    <div class="zone-deco zone-deco-tr"></div>
+    <div class="zone-deco zone-deco-bl"></div>
+    <div class="offers-heading">
+      <div class="offers-tagline">Embarquement pour</div>
+      <h2 class="offers-title">VOYAGEZ SANS STRESS <span class="offers-chevron">⌄</span></h2>
+    </div>
+    <div class="offers-grid">
+      <div class="offer-photo oc-1" style="background-image:url('images/ville1.jpg');" onclick="window.location.href='contrat-reservation.html'"></div>
+      <div class="offer-photo oc-2" style="background-image:url('images/ville2.jpg');" onclick="window.location.href='contrat-reservation.html'"></div>
+      <div class="offer-photo oc-3" style="background-image:url('images/ville3.jpg');" onclick="window.location.href='contrat-reservation.html'"></div>
+    </div>
+  </div>
+
+  <!-- ZONE SEJOURS -->
+  <div class="offer-zone">
+    <div class="zone-deco zone-deco-tr"></div>
+    <div class="zone-deco zone-deco-bl"></div>
+    <div class="offers-heading">
+      <div class="offers-tagline">Envie de</div>
+      <h2 class="offers-title">SÉJOURS MÉMORABLES <span class="offers-chevron">⌄</span></h2>
+    </div>
+    <div class="offers-grid">
+      <div class="offer-photo oc-1" style="background-image:url('images/sejour.jpg');" onclick="openReservation('Séjours')"></div>
+      <div class="offer-photo oc-2" style="background-image:url('images/sejour1.jpg');" onclick="openReservation('Séjours')"></div>
+      <div class="offer-photo oc-3" style="background-image:url('images/sejour2.jpg');" onclick="openReservation('Séjours')"></div>
+    </div>
+  </div>
+
+  <!-- ZONE VOITURES -->
+  <div class="offer-zone">
+    <div class="zone-deco zone-deco-tr"></div>
+    <div class="zone-deco zone-deco-bl"></div>
+    <div class="offers-heading">
+      <div class="offers-tagline">En route pour</div>
+      <h2 class="offers-title">LOCATION DE VOITURE <span class="offers-chevron">⌄</span></h2>
+    </div>
+    <div class="offers-grid">
+      <div class="offer-photo oc-1" style="background-image:url('images/voiture-parking.jpg');" onclick="openReservation('Location de voitures')"></div>
+      <div class="offer-photo oc-2" style="background-image:url('images/voiture.jpg');" onclick="openReservation('Location de voitures')"></div>
+      <div class="offer-photo oc-3" style="background-image:url('images/voiture2.jpg');" onclick="openReservation('Location de voitures')"></div>
+    </div>
+  </div>
+
+  <div class="offers-pills">
+    <a class="offer-pill" href="contrat-reservation.html">Nos vols</a>
+    <a class="offer-pill" onclick="openReservation('Séjours')">Nos séjours</a>
+    <a class="offer-pill" onclick="openReservation('Location de voitures')">Nos voitures</a>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section class="reviews">
+  <div class="offers-heading">
+    <div class="offers-tagline">Ils nous font confiance</div>
+    <h2 class="offers-title">CE QUE DISENT NOS VOYAGEURS <span class="offers-chevron">⌄</span></h2>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Un vol réservé en 5 minutes</h3>
+      <blockquote class="review-quote">J'ai réservé mon billet Libreville–Port-Gentil directement sur WhatsApp, sans passer par une agence physique. Rapide, sérieux et sans mauvaise surprise sur le prix.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">12 mars 2026 — Ornella M.</span>
+        <span class="review-tag">Port-Gentil</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Séjour organisé au dernier moment</h3>
+      <blockquote class="review-quote">Départ décidé 3 jours avant pour Franceville, ils m'ont trouvé un logement correct dans mon budget. Suivi impeccable par WhatsApp du début à la fin.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">28 février 2026 — Steeve N.</span>
+        <span class="review-tag">Franceville</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Voiture de location sans stress</h3>
+      <blockquote class="review-quote">Voiture propre, récupérée à l'aéroport dès l'atterrissage. Le prix annoncé au départ était bien celui payé à l'arrivée, aucune surprise.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">15 février 2026 — Aïcha B.</span>
+        <span class="review-tag">Libreville</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Un vrai gain de temps</h3>
+      <blockquote class="review-quote">D'habitude je passe par un tiers pour mes billets, cette fois j'ai tout fait seule en ligne. Confirmation reçue en moins d'une heure, très pro.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">30 janvier 2026 — Judicaël O.</span>
+        <span class="review-tag">Oyem</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Réactifs même le week-end</h3>
+      <blockquote class="review-quote">J'ai écrit un dimanche soir pour un vol urgent le lundi matin vers Makokou, on m'a répondu en quelques minutes. Service au top.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">18 janvier 2026 — Larissa K.</span>
+        <span class="review-tag">Makokou</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <h3 class="review-title">Recommandé pour toute la famille</h3>
+      <blockquote class="review-quote">Billets et logement réservés en une seule fois pour 6 personnes vers Gamba. Tout était clair, aucun stress sur place.</blockquote>
+      <div class="review-meta">
+        <span class="review-date">6 janvier 2026 — Patrick E.</span>
+        <span class="review-tag">Gamba</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Easy-<span class="footer-gold">Fly</span> Booking</div>
+      <p class="footer-tagline">Agence de billetterie au Gabon — vols, train et bateau, réservés en toute simplicité.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="tel:+24177065783">+241 77 06 57 83</a>
+      <a href="https://wa.me/241065033140" target="_blank">WhatsApp : +241 06 50 33 140</a>
+      <a href="mailto:eflybooking@gmail.com">eflybooking@gmail.com</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Liens rapides</h5>
+      <a href="services.html">Nos services</a>
+      <a href="contrat-reservation.html">Réserver un vol</a>
+      <a href="#" onclick="openReservation('Séjours');return false;">Réserver un séjour</a>
+      <a href="#" onclick="openReservation('Location de voitures');return false;">Louer une voiture</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Destinations</h5>
+      <span class="footer-text">Libreville · Port-Gentil · Franceville</span>
+      <span class="footer-text">Gamba · Makokou · Oyem</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">© 2025 Easy-Fly Booking — Tous droits réservés · Gabon 🇬🇦</div>
+</footer>
+
+<!-- MODALE CHOIX TRANSPORT -->
+<div class="modal" id="transport-modal">
+  <div class="modal-box" style="max-width:420px;">
+    <h3 style="margin-bottom:0.4rem;">Quel transport ?</h3>
+    <p style="margin-bottom:1.5rem;">Choisissez votre mode de transport pour démarrer votre réservation.</p>
+    <div class="transport-choices">
+      <a href="contrat-reservation.html?transport=avion" class="transport-choice">
+        <div class="tc-icon" style="background:linear-gradient(135deg,#1A56C4,#0A3A8F);">
+          <svg viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        </div>
+        <div class="tc-text"><b>Avion</b><span>Vols domestiques</span></div>
+        <span class="tc-arrow">→</span>
+      </a>
+      <a href="contrat-reservation.html?transport=train" class="transport-choice">
+        <div class="tc-icon" style="background:linear-gradient(135deg,#1C3557,#0A1628);">
+          <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+        </div>
+        <div class="tc-text"><b>Train</b><span>Liaison Libreville — Franceville</span></div>
+        <span class="tc-arrow">→</span>
+      </a>
+      <a href="contrat-reservation.html?transport=bateau" class="transport-choice">
+        <div class="tc-icon" style="background:linear-gradient(135deg,#E5A823,#B8860B);">
+          <svg viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>
+        </div>
+        <div class="tc-text"><b>Bateau</b><span>Liaison Libreville — Port-Gentil</span></div>
+        <span class="tc-arrow">→</span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="closeTransport()" style="margin-top:1.2rem;">Annuler</button>
+  </div>
+</div>
+
+
+<!-- MODALE RÉSERVATION (Séjours / Voitures) -->
+<div class="modal" id="reservation-modal">
+  <div class="modal-box" style="max-width:440px;">
+    <h3 id="resa-title" style="margin-bottom:0.4rem;">Réservation</h3>
+    <p style="margin-bottom:1.2rem;color:var(--gray);font-size:0.88rem;">Remplissez ce formulaire, nous vous répondons sur WhatsApp.</p>
+
+    <div class="resa-form">
+      <input id="resa-nom" type="text" placeholder="Votre nom complet *" class="resa-input">
+      <input id="resa-tel" type="tel" placeholder="Votre téléphone *" class="resa-input">
+      <input id="resa-ville" type="text" placeholder="Ville / destination *" class="resa-input">
+      <div class="resa-row">
+        <input id="resa-datedebut" type="text" onfocus="(this.type='date')" placeholder="Date début *" class="resa-input">
+        <input id="resa-datefin" type="text" onfocus="(this.type='date')" placeholder="Date fin *" class="resa-input">
+      </div>
+      <textarea id="resa-details" placeholder="Détails (nb de personnes, type de véhicule, budget...)" class="resa-input" rows="3"></textarea>
+    </div>
+
+    <div id="resa-alert" style="display:none;color:#E8192C;font-size:0.82rem;margin:8px 0;"></div>
+
+    <a id="resa-send" href="#" target="_blank" onclick="return envoyerReservation()" class="resa-btn">
+      💬 Envoyer sur WhatsApp
+    </a>
+    <button class="modal-close" onclick="closeReservation()" style="margin-top:10px;">Annuler</button>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
